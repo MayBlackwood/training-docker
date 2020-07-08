@@ -1,7 +1,5 @@
-CREATE SEQUENCE users_seq;
-
 CREATE TABLE public.users (
-  id bigint PRIMARY KEY unique_id('users_seq') NOT NULL,
+  ID SERIAL PRIMARY KEY,
   firstname text NOT NULL,
   lastname text NOT NULL,
   email text NOT NULL,
@@ -10,9 +8,8 @@ CREATE TABLE public.users (
   role text NOT NULL
 );
 
-INSERT INTO users(id, firstname, lastname, email, password, description, role)
+INSERT INTO users(firstname, lastname, email, password, description, role)
 VALUES(
-  SELECT unique_id('users_seq'),
   'Ksenia',
   'Bobtsova',
   'ksenia.b@dashbouquet.com',
